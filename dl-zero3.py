@@ -4,6 +4,7 @@
 import urllib.request
 import sys
 import os
+from getTitle import getTitle
 
 def download(folderpath, url, pages):
     opener = urllib.request.build_opener()
@@ -19,11 +20,12 @@ def download(folderpath, url, pages):
         	break
 
 if __name__ == "__main__":
-    print("pleae enter URL")
+    print("pleae enter pix URL")
     url=input("--->")
 
-    print("please enter folder name")
-    foldername=input("--->")
+    print("please enter TOP page url")
+    toppage=input("--->")
+    foldername=getTitle(toppage)
     folderpath = "./" + foldername + "/"
     os.makedirs(folderpath, exist_ok=True)    
     
