@@ -13,22 +13,21 @@ def download(folderpath, url, pages):
     for i in range(pages):
         try:
             # url_all = url + str(i+1).zfill(3) + ".jpg"
-            url_pix = url + str(i+1) + ".jpg"
-            print(folderpath)
+            url_pix = url + str(i+1).zfill(3) + ".jpg"
             urllib.request.urlretrieve(url_pix, folderpath + str(i) + ".jpg")
         except urllib.error.URLError as e:
         	break
 
 if __name__ == "__main__":
+    print("pleae enter URL")
+    url=input("--->")
+
     print("please enter folder name")
     foldername=input("--->")
     folderpath = "./" + foldername + "/"
-    os.makedirs(folderpath, exist_ok=True)
+    os.makedirs(folderpath, exist_ok=True)    
     
-    print("pleae enter URL")
-    # url=input("--->")
-    url = "https://static8.hentai-image.com/upload/20191021/594/608222/"
-    
-    print("please enter number of pages")
-    pages=int(input("--->"))
+    # print("please enter number of pages")
+    # pages=int(input("--->"))
+    pages=999
     download(folderpath, url, pages)
